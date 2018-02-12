@@ -1,0 +1,25 @@
+This will provision a VPC with a single server running ELK stack behind and ELB with a self-signed cert.
+
+Not done:  password protect Kibana, clustered environment, multi-az with public/private subnets and private elb for elasticsearch. 
+
+Initial setup:
+
+1. cd to terraform directory
+
+2. Edit the file variables.tf file and put in the full path to your public ssh key for the value:  public_key_path
+
+3. Set environment variables in shell for:  AWS_ACCESS_KEY_ID and  AWS_SECRET_ACCESS_KEY
+
+4. Generate self-signed cert:  “sh gencert.sh”
+
+5. terraform init
+
+Now you can:
+
+terraform plan
+terraform apply
+
+———————————————————————————————
+Used code from:
+https://logz.io/blog/elk-stack-ansible
+https://github.com/terraform-providers/terraform-provider-aws
